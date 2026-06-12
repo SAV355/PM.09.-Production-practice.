@@ -1,0 +1,249 @@
+.page {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding: 32px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Сайдбар ── */
+.sidebar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 80px;
+}
+
+.sidebarTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8f5e9;
+}
+
+.filterGroup {
+    margin-bottom: 20px;
+}
+
+.filterLabel {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: #fafafa;
+    transition: border-color 0.2s;
+
+    &:focus {
+        outline: none;
+        border-color: #2c7a4b;
+        background: #fff;
+    }
+}
+
+.searchForm {
+    margin-bottom: 20px;
+}
+
+.searchRow {
+    display: flex;
+    gap: 8px;
+
+    .input {
+        flex: 1;
+    }
+}
+
+.searchBtn {
+    padding: 9px 12px;
+    background: #2c7a4b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #235f3a;
+    }
+}
+
+.priceRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .input {
+        flex: 1;
+    }
+}
+
+.priceSep {
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+.resetBtn {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+
+    &:hover {
+        background: #e74c3c;
+        color: #fff;
+    }
+}
+
+/* ── Основной контент ── */
+.main {
+    min-width: 0;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.resultsCount {
+    font-size: 0.9rem;
+    color: #555;
+
+    strong {
+        color: #1a1a1a;
+    }
+}
+
+.sortSelect {
+    padding: 7px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    background: #fafafa;
+
+    &:focus {
+        outline: none;
+        border-color: #2c7a4b;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    color: #888;
+    gap: 16px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e8f5e9;
+    border-top-color: #2c7a4b;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+
+    p:first-child {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    p:last-child {
+        font-size: 0.9rem;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.pageBtn {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+        border-color: #2c7a4b;
+        color: #2c7a4b;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: default;
+    }
+}
+
+.pageBtnActive {
+    background: #2c7a4b;
+    color: #fff;
+    border-color: #2c7a4b;
+}

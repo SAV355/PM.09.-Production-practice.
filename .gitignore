@@ -1,0 +1,12 @@
+# системные файлы macOS и Windows
+.DS_Store
+Thumbs.db
+
+# папки с зависимостями и сборками
+node_modules/
+dist/
+build/
+
+# файлы логов и временные файлы
+*.log
+*.tmp

@@ -1,0 +1,360 @@
+.page {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding: 32px 0 60px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pageTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 28px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Карточки секций ── */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    margin-bottom: 20px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Номер шага */
+.step {
+    width: 28px;
+    height: 28px;
+    background: #2c7a4b;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Поля формы ── */
+.formGroup {
+    margin-bottom: 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 7px;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 9px;
+    font-size: 0.95rem;
+    background: #fafafa;
+    color: #1a1a1a;
+    font-family: inherit;
+    transition: border-color 0.2s, background 0.2s;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: #bbb;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #2c7a4b;
+        background: #fff;
+    }
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.inputError {
+    border-color: #e74c3c !important;
+    background: #fff8f8 !important;
+}
+
+.errorMsg {
+    display: block;
+    font-size: 0.8rem;
+    color: #e74c3c;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* ── Карточки опций (доставка / оплата) ── */
+.optionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.optionCard {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    background: #fafafa;
+
+    &:hover {
+        border-color: #a8d5b8;
+        background: #f5fbf7;
+    }
+}
+
+.optionCardActive {
+    border-color: #2c7a4b !important;
+    background: #f0faf4 !important;
+}
+
+/* Скрываем стандартный радио */
+.radioInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.optionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.optionLabel {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.optionDesc {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.optionCheck {
+    width: 24px;
+    height: 24px;
+    background: #2c7a4b;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ── Правая колонка — итого ── */
+.summaryColumn {
+    position: sticky;
+    top: 84px;
+}
+
+.summaryCard {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* Список товаров в итого */
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.orderItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.orderItemImage {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.orderItemInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.orderItemName {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 3px;
+}
+
+.orderItemQty {
+    font-size: 0.78rem;
+    color: #999;
+}
+
+.orderItemTotal {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2c7a4b;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.summaryDivider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 16px 0;
+}
+
+/* Итоговая строка */
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.totalPrice {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2c7a4b;
+}
+
+/* Ошибка отправки */
+.submitError {
+    background: #fdecea;
+    color: #e74c3c;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+    border: 1px solid #f5c6c6;
+}
+
+/* Кнопка подтверждения */
+.submitBtn {
+    width: 100%;
+    padding: 15px;
+    background: #2c7a4b;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-bottom: 12px;
+
+    &:hover:not(:disabled) {
+        background: #235f3a;
+        transform: translateY(-1px);
+    }
+
+    &:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.agreement {
+    font-size: 0.75rem;
+    color: #bbb;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ── Пустая корзина ── */
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+    text-align: center;
+
+    h2 {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    button {
+        padding: 12px 28px;
+        background: #2c7a4b;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            background: #235f3a;
+        }
+    }
+}

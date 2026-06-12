@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /profile
+Disallow: /checkout
+Disallow: /order-success
+
+Sitemap: https://picnicshop.ru/sitemap.xml

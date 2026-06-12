@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2c7a4b" />
+
+    <!-- SEO -->
+    <meta name="description"
+        content="ПикникШоп — интернет-магазин товаров для пикника, кемпинга и активного отдыха. Палатки, спальники, горелки, рюкзаки с доставкой по всей России." />
+    <meta name="keywords" content="пикник, кемпинг, туризм, палатки, спальники, рюкзаки, горелки, активный отдых" />
+    <meta name="author" content="ПикникШоп" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ПикникШоп — товары для активного отдыха" />
+    <meta property="og:description" content="Всё необходимое для пикника и туризма с доставкой по России" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <title>ПикникШоп — товары для активного отдыха</title>
+
+    <style>
+        /* Стили до загрузки React */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Экран загрузки */
+        #root:empty::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            z-index: 9999;
+        }
+
+        /* Спиннер до загрузки React */
+        #initial-loader {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            z-index: 9999;
+            gap: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        #initial-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #initial-loader .loader-logo {
+            font-size: 3.5rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        #initial-loader .loader-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c7a4b;
+            letter-spacing: -0.3px;
+        }
+
+        #initial-loader .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e8f5e9;
+            border-top-color: #2c7a4b;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <div style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        ">
+            <div>
+                <div style="font-size: 3rem; margin-bottom: 16px;">🏕️</div>
+                <h1 style="font-size: 1.4rem; margin-bottom: 10px;">
+                    Для работы сайта необходим JavaScript
+                </h1>
+                <p style="color: #888; font-size: 0.95rem;">
+                    Пожалуйста, включите JavaScript в настройках браузера
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    <!-- Начальный лоадер (скрывается после загрузки React) -->
+    <div id="initial-loader">
+        <div class="loader-logo">🏕️</div>
+        <div class="loader-title">ПикникШоп</div>
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Корневой элемент React -->
+    <div id="root"></div>
+
+    <!-- Скрыть лоадер после загрузки -->
+    <script>
+        (function () {
+            var loader = document.getElementById('initial-loader');
+            if (!loader) return;
+
+            // Скрываем лоадер когда React смонтировался
+            var observer = new MutationObserver(function () {
+                var root = document.getElementById('root');
+                if (root && root.children.length > 0) {
+                    loader.classList.add('hidden');
+                    setTimeout(function () {
+                        loader.remove();
+                    }, 350);
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(
+                document.getElementById('root'),
+                { childList: true, subtree: true }
+            );
+
+            // Запасной вариант — скрыть через 5 секунд
+            setTimeout(function () {
+                if (loader && loader.parentNode) {
+                    loader.classList.add('hidden');
+                    setTimeout(function () {
+                        if (loader.parentNode) loader.remove();
+                    }, 350);
+                }
+            }, 5000);
+        })();
+    </script>
+</body>
+
+</html>

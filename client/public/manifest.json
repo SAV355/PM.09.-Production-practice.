@@ -1,0 +1,17 @@
+{
+    "short_name": "ПикникШоп",
+    "name": "ПикникШоп — товары для активного отдыха",
+    "description": "Интернет-магазин товаров для пикника, кемпинга и туризма",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#2c7a4b",
+    "background_color": "#f8f9fa",
+    "lang": "ru"
+}
